@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
+import { words } from "./words";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class PlavaService {
   URL: string;
   palavra: string;
   suffix: string;
-  letters: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'z'];
+  letters: string[] = ['a', 'b', 'e', 'c', 'i', 'd', 'o', 'f', 'u', 'g', 'a', 'h', 'e',  'j', 'i', 'k', 'o', 'l', 'u', 'm', 'a', 'n', 'e',  'p', 'i', 'q', 'o', 'r', 'u', 's', 'a', 't', 'e',  'v', 'i', 'x', 'o', 'z', 'u'];
 
   constructor(private http: HttpClient) {
     this.URL = 'https://api.dicionario-aberto.net/index.html/suffix';
@@ -19,14 +20,12 @@ export class PlavaService {
   }
 
   //get word from API
-  getWord(): Observable<any> {
-    let trySuffix: string[];
-    let x: number;
-    let inSuffix: string = 'sco';
+  getWord(): string {
 
-    trySuffix = this.letters;
+    let x = parseInt(`${Math.random() * words.length}`);
 
-    return this.http.get(`${this.URL}/${inSuffix}`);
+    return words[x];
+
   }
 
   getPalavra(): string {

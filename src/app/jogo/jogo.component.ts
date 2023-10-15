@@ -10,14 +10,17 @@ import { PlavaService } from '../models/plava.service';
 })
 export class JogoComponent {
   wordForm: FormGroup;
-  wordGroup: Plava[];
-  word: string;
+  // wordGroup: Plava;
+  game: Plava;
+  setColors: string[];
+  lines: string[] = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
+  letters: string[] = ['firstLetter', 'secondLetter', 'thirdLetter', 'fourthLetter', 'fifthLetter'];
 
   constructor(private ps: PlavaService, private fb: FormBuilder) {
-    this.wordGroup = [];
-    this.word = '';
+    this.setColors = [];
+    this.game = new Plava;
     this.wordForm = this.fb.group({
-      answer: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern('[a-zA-Z_ ]')]],
+    answer: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)/*, Validators.pattern('[a-z]')*/]],
     })
   }
 
@@ -26,14 +29,27 @@ export class JogoComponent {
   }
 
   getCurrentWord() {
-      
-    this.ps.getWord().subscribe(ans => {
-
-      this.wordGroup = ans;
-      console.log(this.wordGroup);
-      
-    })
-    
+    this.game.word = this.ps.getWord();
   }
 
+  tryAnswer(forms: FormGroup){
+    console.log("try: " + forms.value.answer);
+    const block: string = this.lines[this.game.tryied];
+    
+    this.setColors = this.game.verify(forms.value.answer);
+    for ( let i = 0; i < this.setColors.length; i++ ) {
+      const line = document.querySelector(`.${block} #${block}Line-${this.letters[i]}`) as HTMLElement;
+      line.style.backgroundColor = this.setColors[i];
+
+      line.innerText = forms.value.answer[i];
+
+
+
+      console.log(this.setColors[i]);
+    }
+  }
+
+  newGame(){
+    this.getCurrentWord();
+  }
 }
