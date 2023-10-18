@@ -15,60 +15,64 @@
         text-align: center;
     }
 </style>
-<body>
+<body (keypress)="captureKey($event)">
     <h1 style="text-align: center;">PLAVA</h1>
-    <form [formGroup]="wordForm">
+    <!-- <form [formGroup]="wordForm">
         <input type="text" name="answer" id="answer" formControlName="answer">
         <input type="submit" value="Enter" (click)="tryAnswer(wordForm)" [disabled]="wordForm.invalid">
+    </form> -->
+
+    <div class="container">
+        <div id="first" class="first">
+            <div id="firstLine-firstLetter"></div>
+            <div id="firstLine-secondLetter"></div>
+            <div id="firstLine-thirdLetter"></div>
+            <div id="firstLine-fourthLetter"></div>
+            <div id="firstLine-fifthLetter"></div>
+        </div>
+
+        <div id="second" class="second">
+            <div id="secondLine-firstLetter"></div>
+            <div id="secondLine-secondLetter"></div>
+            <div id="secondLine-thirdLetter"></div>
+            <div id="secondLine-fourthLetter"></div>
+            <div id="secondLine-fifthLetter"></div>
+        </div>
+
+        <div id="third" class="third">
+            <div id="thirdLine-firstLetter"></div>
+            <div id="thirdLine-secondLetter"></div>
+            <div id="thirdLine-thirdLetter"></div>
+            <div id="thirdLine-fourthLetter"></div>
+            <div id="thirdLine-fifthLetter"></div>
+        </div>
+
+        <div id="fourth" class="fourth">
+            <div id="fourthLine-firstLetter"></div>
+            <div id="fourthLine-secondLetter"></div>
+            <div id="fourthLine-thirdLetter"></div>
+            <div id="fourthLine-fourthLetter"></div>
+            <div id="fourthLine-fifthLetter"></div>
+        </div>
+
+        <div id="fifth" class="fifth">
+            <div id="fifthLine-firstLetter"></div>
+            <div id="fifthLine-secondLetter"></div>
+            <div id="fifthLine-thirdLetter"></div>
+            <div id="fifthLine-fourthLetter"></div>
+            <div id="fifthLine-fifthLetter"></div>
+        </div>
+
+        <div id="sixth" class="sixth">
+            <div id="sixthLine-firstLetter"></div>
+            <div id="sixthLine-secondLetter"></div>
+            <div id="sixthLine-thirdLetter"></div>
+            <div id="sixthLine-fourthLetter"></div>
+            <div id="sixthLine-fifthLetter"></div>
+        </div>
+
         <input type="button" value="Novo" (click)="newGame()">
-    </form>
-
-    <div id="first" class="first">
-        <div id="firstLine-firstLetter"></div>
-        <div id="firstLine-secondLetter"></div>
-        <div id="firstLine-thirdLetter"></div>
-        <div id="firstLine-fourthLetter"></div>
-        <div id="firstLine-fifthLetter"></div>
     </div>
 
-    <div id="second" class="second">
-        <div id="secondLine-firstLetter"></div>
-        <div id="secondLine-secondLetter"></div>
-        <div id="secondLine-thirdLetter"></div>
-        <div id="secondLine-fourthLetter"></div>
-        <div id="secondLine-fifthLetter"></div>
-    </div>
-
-    <div id="third" class="third">
-        <div id="thirdLine-firstLetter"></div>
-        <div id="thirdLine-secondLetter"></div>
-        <div id="thirdLine-thirdLetter"></div>
-        <div id="thirdLine-fourthLetter"></div>
-        <div id="thirdLine-fifthLetter"></div>
-    </div>
-
-    <div id="fourth" class="fourth">
-        <div id="fourthLine-firstLetter"></div>
-        <div id="fourthLine-secondLetter"></div>
-        <div id="fourthLine-thirdLetter"></div>
-        <div id="fourthLine-fourthLetter"></div>
-        <div id="fourthLine-fifthLetter"></div>
-    </div>
-
-    <div id="fifth" class="fifth">
-        <div id="fifthLine-firstLetter"></div>
-        <div id="fifthLine-secondLetter"></div>
-        <div id="fifthLine-thirdLetter"></div>
-        <div id="fifthLine-fourthLetter"></div>
-        <div id="fifthLine-fifthLetter"></div>
-    </div>
-
-    <div id="sixth" class="sixth">
-        <div id="sixthLine-firstLetter"></div>
-        <div id="sixthLine-secondLetter"></div>
-        <div id="sixthLine-thirdLetter"></div>
-        <div id="sixthLine-fourthLetter"></div>
-        <div id="sixthLine-fifthLetter"></div>
-    </div>
 </body>
 </html>
